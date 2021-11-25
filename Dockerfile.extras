@@ -1,0 +1,27 @@
+#These are extra optional run commands.
+#If building fails, there might be something in here that can help
+#These extra statements were part of the building process.
+
+RUN apt install -y libx11-xcb1 libxcb1 libxcomposite1 
+RUN apt install -y libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6      
+
+
+RUN apt install -y libxrandr2 libxrender1
+RUN apt install -y fonts-liberation libnss3 lsb-release xdg-utils 
+RUN apt install -y libcairo-gobject2 libxinerama1 libgtk2.0-0 libpangoft2-1.0-0 libthai0 libpixman-1-0 libxcb-render0 libharfbuzz0b libdatrie1 libgraphite2-3 libgbm1
+RUN apt install -y gconf-service libasound2 libatk1.0-0 libatk-bridge2.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 
+
+
+#RUN wget https://chromedriver.storage.googleapis.com/94.0.4606.61/chromedriver_linux64.zip 
+#RUN unzip chromedriver_linux64.zip 
+#RUN mv chromedriver /usr/bin/chromedriver 
+#RUN chown root:root /usr/bin/chromedriver 
+#RUN chmod +x /usr/bin/chromedriver 
+
+RUN pip3 install dnspython
+RUN apt install -y --no-install-recommends gnupg autoconf automake make bzip2 dpkg-dev file g++ gcc imagemagick 
+RUN apt install -y libbz2-dev libc6-dev libcurl4-openssl-dev libdb-dev libevent-dev libffi-dev libgdbm-dev libglib2.0-dev libgmp-dev libjpeg-dev 
+
+RUN apt install -y libkrb5-dev liblzma-dev libmagickcore-dev libmagickwand-dev libmaxminddb-dev libncurses5-dev libncursesw5-dev libpng-dev libpq-dev libreadline-dev libsqlite3-dev libssl-dev libtool libwebp-dev libxml2-dev libxslt-dev libyaml-dev patch xz-utils zlib1g-dev 
+
+

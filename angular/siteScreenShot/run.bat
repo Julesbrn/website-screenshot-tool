@@ -1,0 +1,1 @@
+ng build --watch --prod --build-optimizer --baseHref="/static/"

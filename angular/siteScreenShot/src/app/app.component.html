@@ -1,0 +1,97 @@
+<div id="wrapper">
+  <div class="title">
+    <div class="title-top">
+      <div class="title-left">
+        <div class="title-right">
+          <div class="title-bottom">
+            <div class="title-top-left">
+              <div class="title-bottom-left">
+                <div class="title-top-right">
+                  <div class="title-bottom-right">
+                    <h1><a href="http://all-free-download.com/free-website-templates/">Website Screenshot Tool</a></h1>
+                    <p>Takes a screenshot of a website</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="noscreen" />
+  <div class="content">
+    <div class="column-left">
+      <h3>MENU</h3>
+      <a href="#skip-menu" class="hidden">Skip menu</a>
+      <ul class="menu">
+        <li><a (click)="setType('single')" [class]="'clickable ' + ((type == 'single') ? 'active' : '')">Single Site</a></li>
+        <li><a [class]="'clickable ' + ((type == 'multi') ? 'active' : '')" (click)="setType('multi')">Multi Site</a></li>
+        <li><a [class]="'clickable ' + ((type == 'apihelp') ? 'active' : '')" (click)="setType('apihelp')">API tool</a></li>
+        <li class="last"><a href="http://github.com/julesbrn">Github</a></li>
+      </ul>
+    </div>
+    <div id="skip-menu"></div>
+    <div class="column-right">
+      <div class="box">
+        <div class="box-top"></div>
+        <!-- START SINGLE SCREENSHOT -->
+        <div class="box-in" *ngIf="type == 'single'">
+          <h1 class="center" style="color:black">Website Screenshot Tool</h1>
+          <div class="centerDiv">
+            <div class="center2">
+              <input #box class="urlbox" (keyup.enter)="doBtn(box)">
+              <button style="margin-left: 5px;margin-top: -2px;" type="button" (click)="doBtn(box)" class="btn btn-success">GO</button>
+            </div>
+            <img [hidden]="isLoaded != 'success'" [src]="url" (load)="onImageLoad($event)">
+            <div id="spinner" *ngIf="isLoaded == 'loading'" class="center" style="height:175px;margin-top:95px">
+                <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            </div>
+            <p *ngIf="urlForUser">You can use this url: <b>{{urlForUser}}</b></p>
+          </div>
+        </div>
+        <!-- END SINGLE SCREENSHOT -->
+
+        <!-- START MULTI SCREENSHOT -->
+        <div class="box-in" *ngIf="type == 'multi'">
+          <h1 class="center" style="color:black">Website Screenshot Tool (Multi)</h1>
+          <div class="centerDiv">
+            <div class="center2">
+              <textarea #box style="width:100%" rows="4"></textarea>
+              <div style="display:grid">
+                <button style="margin: auto;width: 37px;" type="button" (click)="doBtnMulti(box)" class="btn btn-success">GO</button>
+              </div>
+            </div>
+            <div class="urlImg" *ngFor="let url2 of urls; index as i;">
+              <hr/>
+              <b>{{url2.replace("/getImg/", "")}}</b>
+              <img [src]="url2" (load)="onImageLoad($event)">
+              <div id="spinner" *ngIf="isLoaded == 'loading'" class="center" style="height:175px;margin-top:95px">
+                  <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+              </div>
+              <p *ngIf="urlForUser">You can use this url: <b>{{urlBase + url2}}</b></p>
+            </div>
+          </div>
+        </div>
+        <!-- END MULTI SCREENSHOT -->
+
+        <!-- START API HELPER -->
+        <div class="box-in" *ngIf="type == 'apihelp'">
+          <h1 class="center" style="color:black">Website Screenshot Tool</h1>
+          <div class="centerDiv">
+            <div class="center2">
+              <input #box class="urlbox" (keyup.enter)="doBtnHelper(box)">
+              <button style="margin-left: 5px;margin-top: -2px;" type="button" (click)="doBtnHelper(box)" class="btn btn-success">GO</button>
+            </div>
+            <p [hidden]="!urlForUser">You can use this url: <b>{{urlForUser}}</b></p>
+          </div>
+        </div>
+        <!-- END API HELPER -->
+
+
+
+      </div>
+    </div>
+    <div class="cleaner">&nbsp;</div>
+  </div>
+</div>
