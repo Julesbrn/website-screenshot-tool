@@ -16,15 +16,25 @@ npm install -g @angular/cli
 docker pull julesbrn/website-screenshot-tool:v1
 ```
 
+## Starting the container
+Flask listens on port 1111.
+```bash
+docker run -dit --name website-screenshot-tool \
+-p 1234:1111 \
+--restart unless-stopped \
+julesbrn/website-screenshot-tool:v1
+```
+
 ## Using the web tool
 You can visit the root url to access the web tool. Using this, you can either test the tool or use the tool.
 
 ![Single Url](imgs/single_google.png "Single Url")
+![Multi Url](imgs/multi_example.png "Multi Url")
 
 ### API
 There is a page in the web tool to help you use the api.
 
-![Multi Url](imgs/multi_example.png "Multi Url")
+![API Helper](imgs/api_helper.png "API Helper")
 
 ## Using as an api
 In this example, we will use 
@@ -44,8 +54,7 @@ The result can then either be accessed directly, or viewed in an img tag.
 <img src="http://192.168.1.25:1234/getImg/google.com">
 ```
 
-You can also use the web tool.
-![API Helper](imgs/api_helper.png "API Helper")
+You can also use the web tool. (See above for screenshot.)
 
 # Notes
 This docker does not provide any security against malicious websites. It is not recommended to use this tool for potentially unsafe urls.

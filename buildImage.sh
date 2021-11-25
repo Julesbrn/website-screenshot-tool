@@ -8,9 +8,7 @@ docker container rm website-screenshot-tool
 docker build . --tag "website-screenshot" --no-cache
 #docker build . --tag "website-screenshot"
 
-docker run -dit --name website-screenshot-tool \
--p 1234:1111 \
---restart unless-stopped \
-website-screenshot
-
-#-p 81:80 \
+#docker run -dit --name website-screenshot-tool \
+#-p 1234:1111 \
+#--restart unless-stopped \
+#website-screenshot
